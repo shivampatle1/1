@@ -1,156 +1,93 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Event Registration</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News Homepage</title>
 <style>
-/* RESPONSIVE ONLY - NO STYLING */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-}
-
-.speakers {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-@media(max-width:900px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-    .speakers {
-        grid-template-columns: 1fr;
-    }
-}
+/* Layout only */
+.wrapper{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:20px}
+.header{grid-column:1/-1}
+.main-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.top-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{padding:10px}
+@media(max-width:800px){.wrapper{grid-template-columns:1fr}.main-grid{grid-template-columns:1fr}.top-grid{grid-template-columns:1fr}}
 </style>
-
 </head>
 <body>
-
-<header>
-    <h1>Tech Innovation Event 2025</h1>
-    <nav>
-        <a href="#about">About</a> |
-        <a href="#speakers">Speakers</a> |
-        <a href="#schedule">Schedule</a> |
-        <a href="#register">Register</a>
-    </nav>
+<header class="header">
+  <h1>Daily News</h1>
+  <nav aria-label="main nav">
+    <ul>
+      <li><a href="#">World</a></li>
+      <li><a href="#">Tech</a></li>
+      <li><a href="#">Sports</a></li>
+    </ul>
+  </nav>
 </header>
 
-<div class="container">
+<div class="wrapper">
+  <main>
+    <section class="main-grid">
+      <article>
+        <h2>Headline Story</h2>
+        <p>Lead paragraph with summary...</p>
+        <figure>
+          <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="News video" allowfullscreen></iframe>
+          <figcaption>Related video</figcaption>
+        </figure>
+      </article>
 
-    <!-- LEFT SIDE -->
-    <main>
+      <aside>
+        <h3>Top Stories</h3>
+        <ul>
+          <li><a href="#">Story A</a></li>
+          <li><a href="#">Story B</a></li>
+          <li><a href="#">Story C</a></li>
+        </ul>
+      </aside>
+    </section>
 
-        <!-- ABOUT SECTION -->
-        <section id="about">
-            <h2>About the Event</h2>
-            <p>
-                Join us for a full-day event on technology, startups, and innovation.
-                Learn from industry experts and participate in hands-on workshops.
-            </p>
-        </section>
+    <section>
+      <h3>Technology</h3>
+      <div class="top-grid">
+        <article class="card"><h4>Tech 1</h4><p>Summary</p></article>
+        <article class="card"><h4>Tech 2</h4><p>Summary</p></article>
+      </div>
+    </section>
 
-        <!-- SPEAKERS SECTION -->
-        <section id="speakers">
-            <h2>Speakers</h2>
+    <section>
+      <h3>Sports</h3>
+      <ul>
+        <li>Match report 1</li>
+        <li>Match report 2</li>
+      </ul>
+    </section>
+  </main>
 
-            <div class="speakers">
+  <aside>
+    <section>
+      <h4>Newsletter</h4>
+      <form>
+        <label for="mail">Email</label><br>
+        <input id="mail" type="email" name="email">
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
 
-                <article>
-                    <h3>Rahul Verma</h3>
-                    <p>Software Architect</p>
-                </article>
-
-                <article>
-                    <h3>Priya Sharma</h3>
-                    <p>UI/UX Expert</p>
-                </article>
-
-                <article>
-                    <h3>Arjun Singh</h3>
-                    <p>Cloud Engineer</p>
-                </article>
-
-                <article>
-                    <h3>Kavita Patel</h3>
-                    <p>Data Scientist</p>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- SCHEDULE SECTION -->
-        <section id="schedule">
-            <h2>Event Schedule</h2>
-
-            <table border="1" width="100%">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Session</th>
-                        <th>Speaker</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>10:00 AM</td>
-                        <td>Opening Keynote</td>
-                        <td>Rahul Verma</td>
-                    </tr>
-                    <tr>
-                        <td>11:30 AM</td>
-                        <td>Design Thinking</td>
-                        <td>Priya Sharma</td>
-                    </tr>
-                    <tr>
-                        <td>2:00 PM</td>
-                        <td>Cloud Future</td>
-                        <td>Arjun Singh</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-    </main>
-
-    <!-- RIGHT SIDE -->
-    <aside id="register">
-        <h2>Register for Event</h2>
-
-        <form>
-            <label>Full Name</label><br>
-            <input type="text"><br><br>
-
-            <label>Email Address</label><br>
-            <input type="email"><br><br>
-
-            <label>Phone Number</label><br>
-            <input type="tel"><br><br>
-
-            <label>Select Session</label><br>
-            <select>
-                <option>Opening Keynote</option>
-                <option>Design Thinking</option>
-                <option>Cloud Future</option>
-            </select><br><br>
-
-            <button type="submit">Submit Registration</button>
-        </form>
-    </aside>
-
+    <section>
+      <h4>Categories</h4>
+      <ul>
+        <li>World</li>
+        <li>Business</li>
+        <li>Culture</li>
+      </ul>
+    </section>
+  </aside>
 </div>
 
 <footer>
-    <p>© 2025 Tech Innovation Event</p>
+  <p>© Daily News</p>
 </footer>
-
 </body>
 </html>
